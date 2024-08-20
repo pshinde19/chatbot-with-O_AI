@@ -20,77 +20,63 @@
   } 
 
   /* From Uiverse.io by SchawnnahJ */ 
-/* .xloader {
-    position: relative;
-    width: 1.5em;
-    height: 1.5em;
-    transform: rotate(165deg);
-   }
-   
-   .xloader:before, .xloader:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
+  .mydataframe table,
+  .mydataframe th,
+  .mydataframe td {
+    border: 1px solid lightgray;
+    text-align: left;
+  }
+  
+ .mydataframe table {
+    overflow: auto;
+    /* width: 100%; */
+    max-width: 55vw;
+    height: 300px;
     display: block;
-    width: 0.3em;
-    height: 0.3em;
-    border-radius: 0.25em;
-    transform: translate(-50%, -50%);
-   }
+    /* margin: 0 auto; */
+    border-spacing: 0;
+    border-radius: 5px;
+  }
+  
+  .mydataframe tbody {
+    white-space: nowrap;
+  }
+  
+  .mydataframe th,
+  .mydataframe td {
+    padding: 5px 10px;
+    border-top-width: 0;
+    border-left-width: 0;
+  }
+
+  .mydataframe td{
+    background-color:#f9f9f9;
+  }
+  
+  .mydataframe  tr th:first-child {
+    position: sticky;
+    left: 0;
+    background: #f4f5f8;
+    vertical-align: bottom;
+  }
+
+  .mydataframe thead th {
+    position: sticky;
+    top: 0;
+    background: #f4f5f8;
+    vertical-align: bottom;
+  }
+  
+  
+  .mydataframe th:last-child,
+  .mydataframe td:last-child {
+    border-right-width: 0;
+  }
+  
+  .mydataframe tr:last-child td {
+    border-bottom-width: 0;
+  }
    
-   .xloader:before {
-    animation: before8 2s infinite;
-   }
-   
-   .xloader:after {
-    animation: after6 2s infinite;
-   }
-   
-   @keyframes before8 {
-    0% {
-     width: 0.5em;
-     box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
-    }
-   
-    35% {
-     width: 2.5em;
-     box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
-    }
-   
-    70% {
-     width: 0.5em;
-     box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
-    }
-   
-    100% {
-     box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
-    }
-   }
-   
-   @keyframes after6 {
-    0% {
-     height: 0.5em;
-     box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
-    }
-   
-    35% {
-     height: 2.5em;
-     box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
-    }
-   
-    70% {
-     height: 0.5em;
-     box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
-    }
-   
-    100% {
-     box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
-    }
-   }
-   
-   /* .xloader {
-    position: absolute;
-    top: calc(50% - 1.25em);
-    left: calc(50% - 1.25em);
-   } */ 
+  .mymodal-content table{
+    height: 75vh;
+  }

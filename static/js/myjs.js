@@ -88,11 +88,11 @@ function getresponse(data){
     if(data['new_data'] != ''){
         $(lastresp).append(`
             <details class="details" open>
-                <summary class="summary">
+                <summary class="summary" onclick="togglesvgarrow(this)">
                     <span>Data</span>
                     <svg style="transform: rotatez(180deg);" viewBox="0 0 20 20" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" color="inherit" data-testid="stExpanderToggleIcon" class=""><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14l-6-6z"></path></svg>
                 </summary>
-                <div class="mydataframe-parent">
+                <div class="mydataframe-parent"  style="width: fit-content;">
                 <div class="table-utility-parent">
                         <div class="table-utility">
                             <div>
@@ -141,7 +141,7 @@ function getresponse(data){
     if(data['graph_html'] != ''){
        $(lastresp).append(`
         <details class="details" open>
-            <summary class="summary">
+            <summary class="summary" onclick="togglesvgarrow(this)">
                 <span>Graph</span>
                 <svg style="transform: rotatez(180deg);" viewBox="0 0 20 20" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" color="inherit" data-testid="stExpanderToggleIcon" class=""><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14l-6-6z"></path></svg>
             </summary>
@@ -310,6 +310,7 @@ function openmodal(element){
  
   var tempElement = document.createElement('div');
   tempElement.classList.add('mydataframe-parent');
+  tempElement.style.width = 'fit-content';
   tempElement.innerHTML = masterdataHTML;
 
    var utilityElements = tempElement.querySelectorAll('.modalopener')[0]
@@ -363,11 +364,34 @@ function searchtable(element){
     // spanresults.innerHTML=count + "results"
 }
 
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+}
+
+
+
 function searchonoff(element){
     var searchtab= element.parentElement.parentElement.nextElementSibling;
     if (searchtab.style.display === 'none' || searchtab.style.display === '') {
         searchtab.style.display = 'block'; // Show the element
     } else {
         searchtab.style.display = 'none'; // Hide the element
+    }
+}
+
+function togglesvgarrow(element) { 
+    const svg = element.querySelector('svg');
+   // console.log(svg);
+    
+    const currentRotation = svg.style.transform;
+    if (currentRotation === 'rotateZ(180deg)') {
+        svg.style.transform = 'rotateZ(360deg)';
+    } else {
+        svg.style.transform = 'rotateZ(180deg)';
     }
 }
